@@ -1,22 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-Vue.component('text-input', {
-  template: '<textarea :placeholder="textValue" @click="changeText"> </textarea:placeholder>',
-  data: function () {
-return {
-  textValue:'type here',
+var component1={
+  template:'<p> component1</p>'
+};
 
+var component2={
+  template:'<p> component2</p>'
 }
-  },
-  methods:{
-    changeText: function () {
-      this.textValue ="Text changed"
-    }
-  }
-})
 
 new Vue({
   el: '#app',
+  components:{
+    component1: component1,
+    component2:component2
+  }
   //render: h => h(App)
 })
