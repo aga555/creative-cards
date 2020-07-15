@@ -1,6 +1,8 @@
 <template>
   <footer>
-    <slot></slot>
+    <slot>
+      <p>jjjjjdkffffffffffffffffffffffffffffffffffffffffffffffffffhka</p>
+    </slot>
   </footer>
 </template>
 

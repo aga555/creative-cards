@@ -4,12 +4,12 @@
       <div class="col-sm-12">
         <nav-header @pageWsaChanged="currentPage = $event"></nav-header>
         <keep-alive>
-        <component :is="currentPage"></component>
+          <component :is="currentPage"></component>
         </keep-alive>
-        <footer>
-          <p class="text-center">Creative cards </p>
+        <cc-footer>
+          <p class="text-center">{{appName }} </p>
           <nav>
-            <ul style="">
+            <ul class="nav">
 
               <li class="nav-item"><a class="nav-link"> Home </a></li>
               <li class="nav-item"><a class="nav-link">About us </a></li>
@@ -17,7 +17,7 @@
 
             </ul>
           </nav>
-        </footer>
+        </cc-footer>
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@
     export default {
         data: function () {
             return {
+                appName:'creative cards',
                 currentPage: 'cardFront'
             }
 
@@ -43,8 +44,8 @@
             cardFront: CardFront,
             cardInsideLeft: CardInsideLeft,
             cardInsideRight: CardInsideRight,
-            cardBack:CardBack,
-            footer:Footer
+            cardBack: CardBack,
+            ccFooter: Footer
         }
     }
 
