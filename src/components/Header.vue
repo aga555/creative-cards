@@ -5,7 +5,7 @@
       <li class="nav-item"><a @click="pageSelected='cardFront'" class="nav-link"> Front </a></li>
       <li class="nav-item"><a  @click="pageSelected='cardInsideLeft'"class="nav-link">Inside left </a></li>
       <li class="nav-item"><a  @click="pageSelected='cardInsideRight'" class="nav-link">Inside right </a></li>
-      <li class="nav-item"><a  @click="pageSelected='carBack'" class="nav-link">Back </a></li>
+      <li class="nav-item"><a  @click="pageSelected='cardBack'" class="nav-link">Back </a></li>
     </ul>
   </div>
 </template>
