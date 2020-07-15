@@ -5,15 +5,18 @@
       <cc-text-input @displayTextChanged="textBoxValue2= $event"></cc-text-input>
       <cc-text-input @displayTextChanged="textBoxValue3=$event"></cc-text-input>
     </div>
-    1 :{{textBoxValue1}}
-    2 :{{textBoxValue2}}
-    3: {{textBoxValue3}}
-    <div class="col-sm-6 card card-display"></div>
+
+    <div class="col-sm-6 card card-display">
+      <cc-text-output :display-text=" textBoxValue1"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue2"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue3"></cc-text-output>
+    </div>
   </div>
 </template>
 
 <script>
     import TextInput from "./TextInput";
+    import TextOutput from "./TextOutput";
 
     export default {
         name: "CardFront",
@@ -25,7 +28,8 @@
             }
         },
         components: {
-            ccTextInput: TextInput
+            ccTextInput: TextInput,
+            ccTextOutput:TextOutput
         }
     }
 </script>
