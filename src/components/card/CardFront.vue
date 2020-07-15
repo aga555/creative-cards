@@ -34,7 +34,7 @@
     }
 </script>
 
-<style scoped>
+<style>
 
   .edit-area {
     background-color: #d2f9f9;
