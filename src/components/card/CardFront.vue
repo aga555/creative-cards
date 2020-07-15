@@ -7,9 +7,9 @@
     </div>
 
     <div class="col-sm-6 card card-display">
-      <cc-text-output :display-text=" textBoxValue1" ></cc-text-output>
-      <cc-text-output :display-text=" textBoxValue2"  :conteinerHeight="130"></cc-text-output>
-      <cc-text-output :display-text=" textBoxValue3"  :conteinerHeight="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue1"  :container-height="500"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue2"  :conteiner-height="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue3"  :conteiner-height="130"></cc-text-output>
     </div>
   </div>
 </template>

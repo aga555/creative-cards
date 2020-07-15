@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p>{{displayText}}</p>
+    <p :stle="styleObject">
+      {{displayText}}
+    </p>
   </div>
 </template>
 
@@ -9,11 +11,18 @@
         name: "TextOutput",
         props: {
             displayText: [String],
-        containerHeight:{
-                type:Number,
-          default: 200
+            containerHeight: {
+                type: Number,
+                default: 200
+            }
+        },
+        computed: {
+            styleObject: function () {
+                return {
+                    height: this.containerHeight + 'px'
+                }
+            }
         }
-    }
     }
 </script>
 
