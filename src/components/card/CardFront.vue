@@ -2,16 +2,22 @@
   <div class="row">
     <div class="col-sm-6 card edit-area">
       <cc-text-input @displayTextChanged="textBoxValue1= $event"></cc-text-input>
-      <cc-image-upload></cc-image-upload><hr>
+      <cc-image-upload @displayImageChanged="imageName=$event" ></cc-image-upload><hr>
       <cc-text-input @displayTextChanged="textBoxValue2= $event"></cc-text-input>
       <cc-text-input @displayTextChanged="textBoxValue3=$event"></cc-text-input>
     </div>
 
     <div class="col-sm-6 card card-display">
-      <cc-text-output :display-text=" textBoxValue1"  :container-height="500"></cc-text-output>
+{{imageName}}
+      <cc-text-output :display-text=" textBoxValue1"  :container-height="130"></cc-text-output>
+
       <cc-text-output :display-text=" textBoxValue2"  :conteiner-height="130"></cc-text-output>
       <cc-text-output :display-text=" textBoxValue3"  :conteiner-height="130"></cc-text-output>
-    </div>
+
+   <!-- <cc-image-output :display-image="imageName" :container-height="350"></cc-image-output>-->
+
+  </div>
+
   </div>
 </template>
 
@@ -19,6 +25,8 @@
     import TextInput from "./TextInput";
     import TextOutput from "./TextOutput";
     import ImageUpload from "./ImageUpload";
+    import ImageOutput from "./ImageOutput";
+
 
     export default {
         name: "CardFront",
@@ -27,12 +35,14 @@
                 textBoxValue1: '',
                 textBoxValue2: '',
                 textBoxValue3: '',
+                imageName :''
             }
         },
         components: {
             ccTextInput: TextInput,
             ccTextOutput:TextOutput,
-            ccImageUpload: ImageUpload
+            ccImageUpload: ImageUpload,
+            ccImageOutput: ImageOutput
         }
     }
 </script>
