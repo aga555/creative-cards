@@ -28,7 +28,7 @@
         methods: {
             uploadFile: function (event) {
                 this.file = event.target.files[0]
-                var storageRef = Firebase.storage().ref('user_uploads/' + this.file.name)
+                var storageRef = Firebase.storage().ref('user_uploads/' + this.file.name);
 
               //create thumbnail
                 var upload = storageRef.put(this.file)

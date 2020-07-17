@@ -1,21 +1,34 @@
 <template>
-<div  class="img-container ":style="styleObject">
-  <img id="outputImage">{{displayImage}}
-</div>
+  <div class="img-container " :style="styleObject">
+    <img id="outputImage">{{displayImage}}
+  </div>
 </template>
 
 <script>
+
+    import * as Firebase from "firebase";
+
     export default {
         name: "ImageOutput",
-        props:{
-            displayImage:{
-                type:String
+        props: {
+            displayImage: {
+                type: String
             },
-            containerHeight:{
+            containerHeight: {
                 type: Number,
-                default:200
+                default: 200
             }
-        },
+        }, watch: {
+            displayImage: function () {
+                var storageRef = Firebase.storage().ref('user_uploads/' + this.displayImage);
+                storageRef.getDownloadURL().then(function (url) {
+                    var img = document.getElementById('outputImage');
+                    img.src = url
+
+                })
+            }
+        }
+        ,
         computed: {
             styleObject: function () {
                 return {
