@@ -10,7 +10,7 @@
       </progress>
       <br>
       <img id="image">
-      <button type="button" id="setImage">set image</button>
+      <button type="button" id="setImageButton" style="display:none"  @click=" setImage">set image</button>
     </div>
   </div>
 </template>
@@ -42,8 +42,14 @@
                 upload.on('state_changed', function (snapshot) {
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100 ;
                     document.getElementById('progressBar').value = progress;
+
+                    if(progress===100){
+                        document.getElementById('setImageButton').style.display='inline-block'
+                    }
                 });
 
+            },
+            setImage:function(){
                 this.$emit('displayImageChanged', this.file.name)
             }
         }
