@@ -1,5 +1,5 @@
 <template>
-<div style="border: 1px">
+<div  class="img-container ":style="styleObject">
   <img id="outputImage">{{displayImage}}
 </div>
 </template>
@@ -15,10 +15,21 @@
                 type: Number,
                 default:200
             }
+        },
+        computed: {
+            styleObject: function () {
+                return {
+                    height: this.containerHeight + 'px'
+                }
+            }
         }
     }
 </script>
 
 <style scoped>
-
+  .img-container {
+    border: 1px dotted grey;
+    overflow: hidden;
+    margin: 5px;
+  }
 </style>
