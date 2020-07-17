@@ -27,6 +27,7 @@
         },
         methods: {
             uploadFile: function (event) {
+                document.getElementById('setImageButton').style.display='none'
                 this.file = event.target.files[0]
                 var storageRef = Firebase.storage().ref('user_uploads/' + this.file.name);
 
