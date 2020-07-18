@@ -11,7 +11,7 @@
 
       <cc-text-output :display-text=" textBoxValue1"  :container-height="130"></cc-text-output>
 
-      <cc-image-output :display-image="imageName" :container-height="350"></cc-image-output>
+      <cc-image-output :display-image="imageName" :container-height="350" :clearImageProp="clearImage"></cc-image-output>
 
       <cc-text-output :display-text=" textBoxValue2"  :conteiner-height="130"></cc-text-output>
       <cc-text-output :display-text=" textBoxValue3"  :conteiner-height="130"></cc-text-output>
@@ -38,6 +38,12 @@
                 textBoxValue3: '',
                 imageName :''
             }
+        },
+        methods:{
+            clearImage:function () {
+                if ( this.imageName !==''){
+                this.imageName='water-3322250_640.jpg'
+            } }
         },
         components: {
             ccTextInput: TextInput,
