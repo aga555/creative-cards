@@ -1,5 +1,7 @@
 <template>
-  <div class="img-container " :style="styleObject">
+  <div class="img-container " :style="styleObject" @mouseover="showOptions=true"
+  @mouseleave="showOptions=false">
+    <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions"> Remove Image </button>
     <img id="outputImage">{{displayImage}}
   </div>
 </template>
@@ -18,7 +20,15 @@
                 type: Number,
                 default: 200
             }
-        }, watch: {
+        },
+        data: function()
+        {
+            return {
+                showOptions:false
+        }
+
+        },
+        watch: {
             displayImage: function () {
                 var storageRef = Firebase.storage().ref('user_uploads/' + this.displayImage);
                 storageRef.getDownloadURL().then(function (url) {
@@ -44,5 +54,9 @@
     border: 1px dotted grey;
     overflow: hidden;
     margin: 5px;
+  }
+  button{
+    position: absolute;
+    z-index: 1;
   }
 </style>
