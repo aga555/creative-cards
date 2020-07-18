@@ -19,8 +19,18 @@
         </label>
       </div>
 
+      <div class="form-check form-check-inline">
+<label class="form-check-label">
+  <input type="checkbox" class="form-check-input" value="bold" v-model="setBold">  Bold
+</label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="italic" v-model="setItalic">  Italic
+        </label>
+
+      </div>
+
     </form>
-    <p :style="styleObject">
+    <p :style="styleObject" :class="{bold:setBold,italic:setItalic}">
       {{displayText}}
     </p>
   </div>
@@ -41,13 +51,16 @@
 
                 showOptions: false,
                 setFontsize: '',
-                setTextAlign: ''
+                setTextAlign: '',
+                setBold:false,
+                setItalic:false,
             }
         },
 
         computed: {
             styleObject: function () {
                 return {
+
                     textAlign: this.setTextAlign,
                     fontSize: this.setFontsize + 'px',
                     height: this.containerHeight + 'px',
@@ -63,7 +76,7 @@ h1 {
 }
 
 p {
-  font-family: 'Shadows Into Light', cursive;
+  font-family:'Montserrat', sans-serif;
   line-height: 45px;
   font-size: 45px;
   text-shadow: 2px 2px 2px #aaa;
@@ -72,4 +85,21 @@ p {
   white-space: pre-line;
   overflow: hidden
 }
+  .bold {
+    font-weight: bold;
+  }
+  .italic{
+    font-style: italic;
+  }
+.form {
+  position: absolute;
+  border: 1px dotted grey;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+  .select{
+    height: 40%;
+  }
+
 </style>
