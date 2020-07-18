@@ -5,12 +5,20 @@
 
       <label for="selectBox"> Font size </label>
       <select class="custom-select" id="selectBox" v-model="setFontsize">
-
         <option value="12">12 px</option>
         <option value="54">54 px</option>
         <option value="60">60 px</option>
         <option value="72">72 px</option>
       </select>
+
+      <div class="form-check form-check-inline">
+        <label class="form-check-lablel">
+          <input type="radio" class="form-check-input" value="left" v-model="setTextAlign">left
+          <input type="radio" class="form-check-input" value="center" v-model="setTextAlign">center
+          <input type="radio" class="form-check-input" value="right" v-model="setTextAlign">right
+        </label>
+      </div>
+
     </form>
     <p :style="styleObject">
       {{displayText}}
@@ -32,22 +40,24 @@
             return {
 
                 showOptions: false,
-                setFontsize: ''
+                setFontsize: '',
+                setTextAlign: ''
             }
         },
 
         computed: {
             styleObject: function () {
                 return {
+                    textAlign: this.setTextAlign,
                     fontSize: this.setFontsize + 'px',
-                    height: this.containerHeight + 'px'
+                    height: this.containerHeight + 'px',
                 }
             }
         }
     }
 </script>
 
-<style scoped>ZDSDD
+<style scoped>
 h1 {
   font-family: 'Montserrat', sans-serif;
 }
