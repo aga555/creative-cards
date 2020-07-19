@@ -1,6 +1,6 @@
 <template>
   <div @mouseover="showOptions= true"
-       @mouseleave=false>
+       @mouseleave="showOptions= false">
     <form class="small" v-show="showOptions">
 
       <label for="selectBox"> Font size </label>
@@ -20,17 +20,19 @@
       </div>
 
       <div class="form-check form-check-inline">
-<label class="form-check-label">
-  <input type="checkbox" class="form-check-input" value="bold" v-model="setBold">  Bold
-</label>
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="italic" v-model="setItalic">  Italic
+          <input type="checkbox" class="form-check-input" value="bold" v-model="setBold"> Bold
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="italic" v-model="setItalic"> Italic
         </label>
 
       </div>
 
     </form>
-    <p :style="styleObject" :class="{bold:setBold,italic:setItalic}">
+    <p :style="styleObject"
+       :class="{bold:setBold,italic:setItalic}"
+    >
       {{displayText}}
     </p>
   </div>
@@ -52,8 +54,8 @@
                 showOptions: false,
                 setFontsize: '',
                 setTextAlign: '',
-                setBold:false,
-                setItalic:false,
+                setBold: false,
+                setItalic: false,
             }
         },
 
@@ -71,34 +73,38 @@
 </script>
 
 <style scoped>
-h1 {
-  font-family: 'Montserrat', sans-serif;
-}
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
 
-p {
-  font-family:'Montserrat', sans-serif;
-  line-height: 45px;
-  font-size: 45px;
-  text-shadow: 2px 2px 2px #aaa;
-  margin: 5px 0;
-  border: 1px dotted grey;
-  white-space: pre-line;
-  overflow: hidden
-}
+  p {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 45px;
+    font-size: 45px;
+    text-shadow: 2px 2px 2px #aaa;
+    margin: 5px 0;
+    border: 1px dotted grey;
+    white-space: pre-line;
+    overflow: hidden
+  }
+
   .bold {
     font-weight: bold;
   }
-  .italic{
+
+  .italic {
     font-style: italic;
   }
-.form {
-  position: absolute;
-  border: 1px dotted grey;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-}
-  .select{
+
+  .form {
+    position: absolute;
+    border: 1px dotted grey;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+
+  .select {
     height: 40%;
   }
 
