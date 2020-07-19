@@ -38,6 +38,7 @@
                 storageRef.getDownloadURL().then(function (url) {
                     var img = document.getElementById('outputImage');
                     img.src = url
+                    setDragable();
 
                 })
             }
@@ -51,6 +52,10 @@
             }
         }
     }
+    function setDragable() {
+        $('#outputImage').draggable();
+
+    }
 </script>
 
 <style scoped>
@@ -63,4 +68,7 @@
     position: absolute;
     z-index: 1;
   }
+   img {
+     width: 100%;
+   }
 </style>
