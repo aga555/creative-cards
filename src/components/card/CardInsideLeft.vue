@@ -1,17 +1,34 @@
-
 <template>
-  <div class="row">
-    <p> Card inside Left</p>
-    <div class="col-sm-6 card edit-area"></div>
-    <div class="col-sm-6 card card-display"></div>
+  <div class=" row">
+    <div class="col-sm-6 card edit-area">
+      <cc-text-input @displayTextChanged="textBoxValue1= $event"></cc-text-input>
+    </div>
+
+    <div class="col-sm-6 card card-display">
+      <cc-text-output :display-text=" textBoxValue1" :container-height="130"></cc-text-output>
+    </div>
   </div>
+
 </template>
 <script>
-    export default {
-        name: "CardInsideLeft"
-    }
-</script>
+    import TextInput from "./TextInput";
+    import TextOutput from "./TextOutput";
 
+    export default {
+        name: "CardInsideLeft",
+        data: function () {
+            return {
+                textBoxValue1: '',
+            }
+
+        },
+        components: {
+            ccTextInput: TextInput,
+            ccTextOutput: TextOutput,
+        }
+    }
+
+</script>
 
 
 <style scoped>
