@@ -1,7 +1,6 @@
 <template>
-  <div @mouseover="showOptions= true"
-       @mouseleave="showOptions= false">
-    <form class="small" v-show="showOptions">
+  <div>
+    <form class="small">
 
       <label for="selectBox"> Font size </label>
       <select class="custom-select" id="selectBox" v-model="setFontsize">

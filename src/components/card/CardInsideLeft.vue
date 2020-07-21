@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-sm-6 card card-display">
-      <cc-text-output :display-text=" textBoxValue1" :container-height="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue1" :container-height="730"></cc-text-output>
     </div>
   </div>
 
