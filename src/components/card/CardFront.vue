@@ -2,22 +2,25 @@
   <div class="row">
     <div class="col-sm-6 card edit-area">
       <cc-text-input @displayTextChanged="textBoxValue1= $event"></cc-text-input>
-      <cc-image-upload @displayImageChanged="imageName=$event" ></cc-image-upload><hr>
+      <cc-image-upload @displayImageChanged="imageName=$event"></cc-image-upload>
+      <hr>
       <cc-text-input @displayTextChanged="textBoxValue2= $event"></cc-text-input>
       <cc-text-input @displayTextChanged="textBoxValue3=$event"></cc-text-input>
+    <cc-section-completed></cc-section-completed>
     </div>
 
     <div class="col-sm-6 card card-display">
 
-      <cc-text-output :display-text=" textBoxValue1"  :container-height="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue1" :container-height="130"></cc-text-output>
 
-      <cc-image-output :display-image="imageName" :container-height="350" :clearImageProp="clearImage"></cc-image-output>
+      <cc-image-output :display-image="imageName" :container-height="350"
+                       :clearImageProp="clearImage"></cc-image-output>
 
-      <cc-text-output :display-text=" textBoxValue2"  :conteiner-height="130"></cc-text-output>
-      <cc-text-output :display-text=" textBoxValue3"  :conteiner-height="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue2" :conteiner-height="130"></cc-text-output>
+      <cc-text-output :display-text=" textBoxValue3" :conteiner-height="130"></cc-text-output>
 
 
-  </div>
+    </div>
 
   </div>
 </template>
@@ -27,6 +30,7 @@
     import TextOutput from "./TextOutput";
     import ImageUpload from "./ImageUpload";
     import ImageOutput from "./ImageOutput";
+    import SectionCompleted from "./SectionCompleted";
 
 
     export default {
@@ -36,20 +40,22 @@
                 textBoxValue1: '',
                 textBoxValue2: '',
                 textBoxValue3: '',
-                imageName :''
+                imageName: ''
             }
         },
-        methods:{
-            clearImage:function () {
-                if ( this.imageName !==''){
-                this.imageName='water-3322250_640.jpg'
-            } }
+        methods: {
+            clearImage: function () {
+                if (this.imageName !== '') {
+                    this.imageName = 'water-3322250_640.jpg'
+                }
+            }
         },
         components: {
             ccTextInput: TextInput,
-            ccTextOutput:TextOutput,
+            ccTextOutput: TextOutput,
             ccImageUpload: ImageUpload,
-            ccImageOutput: ImageOutput
+            ccImageOutput: ImageOutput,
+            ccSectionCompleted: SectionCompleted
         }
     }
 </script>
