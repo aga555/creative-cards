@@ -1,15 +1,39 @@
 <template>
-  <div class="row">
-    <p> Card inside Right</p>
-    <div class="col-sm-6 card edit-area"></div>
-    <div class="col-sm-6 card card-display"></div>
+  <div class=" row">
+  <div class="col-sm-6 card edit-area">
+    <cc-text-input @displayTextChanged="textBoxValue1= $event"></cc-text-input>
+    <cc-text-input @displayTextChanged="textBoxValue2= $event"></cc-text-input>
+    <cc-text-input @displayTextChanged="textBoxValue3= $event"></cc-text-input>
   </div>
+
+  <div class="col-sm-6 card card-display">
+    <cc-text-output :display-text=" textBoxValue1" :container-height="140"></cc-text-output>
+    <cc-text-output :display-text=" textBoxValue2" :container-height="140"></cc-text-output>
+    <cc-text-output :display-text=" textBoxValue3" :container-height="140"></cc-text-output>
+  </div>
+</div>
 </template>
 <script>
+
+    import TextInput from "./TextInput";
+    import TextOutput from "./TextOutput";
     export default {
-        name: "CardInsideRight"
+
+        name: "CardInsideLeft",
+        data: function () {
+            return {
+                textBoxValue1: '',
+                textBoxValue2: '',
+                textBoxValue3: '',
+            }
+
+        },
+        components: {
+            ccTextInput: TextInput,
+            ccTextOutput: TextOutput,
+        }
     }
-</script>
+    </script>
 
 
 <style scoped>
