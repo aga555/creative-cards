@@ -1,13 +1,15 @@
 <template>
   <div class="img-container " :style="styleObject" @mouseover="showOptions=true"
-  @mouseleave="showOptions=false">
-    <transition name="fade">
-    <button type="button"
-            class="btn btn-outline-danger btn-sm"
-            v-show="showOptions"
-            @click="clearImageProp"> Remove Image </button>
+       @mouseleave="showOptions=false">
+    <transition name="scale">
+      <button type="button"
+              class="btn btn-outline-danger btn-sm"
+              v-show="showOptions"
+              @click="clearImageProp"> Remove Image
+      </button>
     </transition>
-    <img id="outputImage">{{displayImage}}
+    <img id="outputImage">
+    {{displayImage}}
   </div>
 </template>
 
@@ -27,11 +29,10 @@
             },
             clearImageProp: Function
         },
-        data: function()
-        {
+        data: function () {
             return {
-                showOptions:false
-        }
+                showOptions: false
+            }
 
         },
         watch: {
@@ -54,6 +55,7 @@
             }
         }
     }
+
     function setDragable() {
         $('#outputImage').draggable();
 
@@ -66,11 +68,34 @@
     overflow: hidden;
     margin: 5px;
   }
-  button{
+
+  button {
     position: absolute;
     z-index: 1;
   }
-   img {
-     width: 100%;
-   }
+
+  img {
+    width: 100%;
+  }
+
+  .scale-enter-active {
+    animation: scale-in 0.5s;
+  }
+
+  .scale-enter-leave {
+    animation: scale-out 0.5s;
+  }
+
+  @keyframes scale-in {
+    0% { transform: scale(0);}
+    100% {transform: scale(1);}
+
+  }
+
+  @keyframes scale-out {
+    0% {transform: scale(1);
+    }
+    100% {transform: scale(0);
+    }
+  }
 </style>
