@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <form class="small">
+  <div @mouseover="showOptions= true"
+       @mouseleave="showOptions= false">
+
+    <transition name="fade">
+    <form class="small" v-show="showOptions">
 
       <label for="selectBox"> Font size </label>
       <select class="custom-select" id="selectBox" v-model="setFontsize">
@@ -29,6 +32,7 @@
       </div>
 
     </form>
+    </transition>
     <p :style="styleObject"
        :class="{bold:setBold,italic:setItalic}"
     >
@@ -95,7 +99,7 @@
     font-style: italic;
   }
 
-  .form {
+  form {
     position: absolute;
     border: 1px dotted grey;
     margin-top: 10px;
@@ -103,8 +107,16 @@
     padding-bottom: 5px;
   }
 
-  .select {
+  select {
     height: 40%;
   }
+  .fade-enter ,.fade-leave-to {
+  opacity: 0;
+  }
+
+  .fade-enter-active ,.fade-leave-active {
+    transition: .5s;
+  }
+
 
 </style>

@@ -58,4 +58,12 @@
     font-family: Verdana, Gneva, sans-serif;
     color: #333;
   }
+  .fade-enter ,.fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-active ,.fade-leave-active {
+    transition: .5s;
+  }
+
 </style>
