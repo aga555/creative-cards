@@ -23,23 +23,20 @@
     import ImageUpload from "./ImageUpload";
     import ImageOutput from "./ImageOutput";
     import SectionCompleted from "./SectionCompleted";
+    import {clearImageMixin} from "../../clearImageMixin";
 
 
     export default {
         name: "CardBack",
+        mixins:[clearImageMixin],
         data: function () {
+
             return {
 
                 imageName: ''
             }
         },
-        methods: {
-            clearImage: function () {
-                if (this.imageName !== '') {
-                    this.imageName = 'water-3322250_640.jpg'
-                }
-            }
-        },
+
         components: {
 
             ccImageUpload: ImageUpload,
