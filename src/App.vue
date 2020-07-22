@@ -3,14 +3,17 @@
     <div class="row">
       <div class="col-sm-12">
         <nav-header @pageWsaChanged="currentPage = $event"></nav-header>
-        <keep-alive>
-          <component :is="currentPage"></component>
-        </keep-alive>
+
+        <transition name="fade" mode="out-in">
+          <keep-alive>
+            <component :is="currentPage"></component>
+          </keep-alive>
+        </transition>
         <cc-footer>
+
           <p class="text-center">{{appName }} </p>
           <nav>
             <ul class="nav">
-
               <li class="nav-item"><a class="nav-link"> Home </a></li>
               <li class="nav-item"><a class="nav-link">About us </a></li>
               <li class="nav-item"><a class="nav-link">Contact </a></li>
@@ -35,7 +38,7 @@
     export default {
         data: function () {
             return {
-                appName:'creative cards',
+                appName: 'creative cards',
                 currentPage: 'cardFront'
             }
 
@@ -58,11 +61,12 @@
     font-family: Verdana, Gneva, sans-serif;
     color: #333;
   }
-  .fade-enter ,.fade-leave-to {
+
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
 
-  .fade-enter-active ,.fade-leave-active {
+  .fade-enter-active, .fade-leave-active {
     transition: .5s;
   }
 
