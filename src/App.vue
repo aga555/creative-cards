@@ -22,6 +22,7 @@
           </div>
         </div>
         <transition
+          appear
           name="fade"
           mode="out-in"
           @enter="enter"
@@ -66,9 +67,9 @@
 
         },
         methods: {
-            enter: function (el, done) {
+            enter: function (el) {
                 document.getElementById('instructions').style.display = "none";
-                done()
+
             }
         },
 
@@ -95,8 +96,32 @@
     opacity: 0;
   }
 
-  .fade-enter-active, .fade-leave-active {
+  .fade-enter-active  {
     transition: .5s;
+
+  }
+  .fade-leave-active {
+    transition: .5s;
+
+  }
+  .scale-enter-active {
+    animation: scale-in 0.5s;
   }
 
+  .scale-enter-leave {
+    animation: scale-out 0.5s;
+  }
+
+  @keyframes scale-in {
+    0% { transform: scale(0);}
+    100% {transform: scale(1);}
+
+  }
+
+  @keyframes scale-out {
+    0% {transform: scale(1);
+    }
+    100% {transform: scale(0);
+    }
+  }
 </style>
