@@ -3,8 +3,30 @@
     <div class="row">
       <div class="col-sm-12">
         <nav-header @pageWsaChanged="currentPage = $event"></nav-header>
+        <div id="instructions" class="text-center italic ">
+          <div class="row">
+            <div class="col-sm-6">
+              <p>
+                <em>
+                  &larr; Make changes in the edit area bellow
+                </em>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <p>
+                <em>
+                  And the will show on the card &rarr;
+                </em>
+              </p>
+            </div>
+          </div>
+        </div>
+        <transition
+          name="fade"
+          mode="out-in"
+          @enter="enter"
 
-        <transition name="fade" mode="out-in">
+        >
           <keep-alive>
             <component :is="currentPage"></component>
           </keep-alive>
@@ -43,6 +65,13 @@
             }
 
         },
+        methods: {
+            enter: function (el, done) {
+                document.getElementById('instructions').style.display = "none";
+                done()
+            }
+        },
+
         components: {
             navHeader: Header,
             cardFront: CardFront,
